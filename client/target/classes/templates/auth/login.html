@@ -1,0 +1,38 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Вход</title>
+    <link rel="stylesheet" href="/auth/auth.css"> <!-- Обновленный путь -->
+</head>
+<body>
+<section class="container">
+    <div class="login-container">
+        <div class="circle circle-one"></div>
+        <div class="form-container">
+            <h1 class="opacity">Вход</h1>
+            <form th:action="@{/login}" method="post">
+                <input type="text" id="username" name="username" placeholder="Логин" required>
+                <input type="password" id="password" name="password" placeholder="Пароль" required>
+                <button class="opacity" type="submit">Войти</button>
+            </form>
+            <div class="register-forget opacity">
+                <!-- Кнопка "Зарегистрироваться" на странице авторизации -->
+                <a href="/register">
+                    <button class="opacity register-btn" type="button">Зарегистрироваться</button>
+                </a>
+            </div>
+            <div th:if="${error}">
+                <p th:text="${error}" style="color: red;"></p>
+            </div>
+            <div th:if="${success}">
+                <p th:text="${success}" style="color: green;"></p>
+            </div>
+        </div>
+        <div class="circle circle-two"></div>
+    </div>
+    <div class="theme-btn-container"></div>
+</section>
+<script src="/theme.js"></script> <!-- Обновленный путь -->
+</body>
+</html>

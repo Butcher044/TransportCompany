@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавление грузовика</title>
+    <link rel="stylesheet" href="/style_add/style.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<div class="container">
+    <div class="dashboard-container">
+        <h1 class="title">Добавление нового грузовика</h1>
+
+        <form th:action="@{/trucks/add}" method="post">
+            <div class="form-group">
+                <label for="brand">Бренд:</label>
+                <input type="text" id="brand" name="brand" required class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="modelTruck">Модель:</label>
+                <input type="text" id="modelTruck" name="modelTruck" required class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="yearOfRelease">Год выпуска:</label>
+                <input type="date" id="yearOfRelease" name="yearOfRelease" required class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="registrationMark">Гос. номер:</label>
+                <input type="text" id="registrationMark" name="registrationMark" required class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="capacity">Вместимость:</label>
+                <input type="number" id="capacity" name="capacity" required class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="bodyVolume">Объем кузова:</label>
+                <input type="number" id="bodyVolume" name="bodyVolume" required class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="garageNumber">Гаражный номер:</label>
+                <input type="number" id="garageNumber" name="garageNumber" required class="form-input">
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Добавить</button>
+                <a href="/trucks/list" class="btn btn-secondary">Назад к списку</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+<div class="theme-btn-container"></div>
+</html>

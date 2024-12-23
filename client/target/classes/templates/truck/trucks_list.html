@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список грузовиков</title>
+    <link rel="stylesheet" href="/style_list/style.css">
+    <script src="/style_list/table.js" defer></script>
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<div class="container">
+    <div class="dashboard-container">
+        <h1 class="title">Список грузовиков</h1>
+        <div class="table">
+            <div class="table-header">
+                <div class="header__item"><a id="brand" class="filter__link" href="#">Бренд</a></div>
+                <div class="header__item"><a id="modelTruck" class="filter__link" href="#">Модель</a></div>
+                <div class="header__item"><a id="yearOfRelease" class="filter__link" href="#">Год выпуска</a></div>
+                <div class="header__item"><a id="registrationMark" class="filter__link" href="#">Гос. номер</a></div>
+                <div class="header__item"><a id="capacity" class="filter__link" href="#">Вместимость</a></div>
+                <div class="header__item"><a id="bodyVolume" class="filter__link" href="#">Объем кузова</a></div>
+                <div class="header__item"><a id="garageNumber" class="filter__link" href="#">Гаражный номер</a></div>
+                <div class="header__item"><a class="filter__link" href="#">Действия</a></div>
+            </div>
+            <div class="table-content">
+                <div class="table-row" th:each="truck : ${trucks}">
+                    <div class="table-data" th:text="${truck.brand}"></div>
+                    <div class="table-data" th:text="${truck.modelTruck}"></div>
+                    <div class="table-data" th:text="${truck.yearOfRelease}"></div>
+                    <div class="table-data" th:text="${truck.registrationMark}"></div>
+                    <div class="table-data" th:text="${truck.capacity}"></div>
+                    <div class="table-data" th:text="${truck.bodyVolume}"></div>
+                    <div class="table-data" th:text="${truck.garageNumber}"></div>
+                    <div class="table-data">
+                        <div class="actions">
+                            <!-- Форма для удаления грузовика -->
+                            <form th:action="@{/trucks/delete/{id}(id=${truck.id})}" method="post" class="delete-form">
+                                <button type="submit" class="btn btn-danger btn-sm mt-3"
+                                        onclick="return confirm('Вы уверены, что хотите удалить этот грузовик?');">
+                                    Удалить грузовик
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="/trucks/add" class="btn btn-primary">Добавить грузовик</a>
+        <a href="/button/back" class="btn-back">Назад</a>
+    </div>
+</div>
+<div class="theme-btn-container"></div>
+</body>
+</html>
