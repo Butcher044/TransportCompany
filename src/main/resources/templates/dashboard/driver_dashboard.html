@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Панель Водителя</title>
+  <link rel="stylesheet" href="/dashboard/dashboard.css"> <!-- Обновленный путь к стилям -->
+</head>
+<body>
+<section class="container">
+  <div class="dashboard-container">
+    <h1 class="title">Добро пожаловать в панель Водителя!</h1>
+    <!-- Контейнер для кнопок тем -->
+    <div class="theme-btn-container"></div>
+
+    <div class="icon-container">
+      <div class="icon">
+        <a th:href="@{/drivers/profile}">
+          <img src="/images/Profile.png" alt="Профиль">
+          <p>Профиль</p>
+        </a>
+      </div>
+      <div class="icon">
+        <a th:href="@{/trucks/list}">
+          <img src="/images/Truck.png" alt="Грузовики">
+          <p>Грузовики</p>
+        </a>
+      </div>
+      <div class="icon">
+        <a th:href="@{/reports/list}">
+          <img src="/images/Report.png" alt="Отчеты">
+          <p>Отчеты</p>
+        </a>
+      </div>
+      <div class="icon">
+        <a th:href="@{/routes/list}">
+          <img src="/images/Route.png" alt="Маршруты">
+          <p>Маршруты</p>
+        </a>
+      </div>
+      <div class="icon">
+        <a th:href="@{/about}">
+          <img src="/images/adout.png" alt="Автор">
+          <p>Автор</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="/theme.js"></script> <!-- Обновленный путь -->
+</body>
+</html>

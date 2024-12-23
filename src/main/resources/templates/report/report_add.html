@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавление отчета</title>
+    <link rel="stylesheet" href="/style_add/style.css">
+
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<div class="container">
+    <div class="dashboard-container">
+        <h1 class="title">Добавление нового отчета</h1>
+
+        <form th:action="@{/reports/add}" method="post">
+            <div class="form-group">
+                <label for="description">Описание:</label>
+                <input type="text" id="description" name="description" required class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="dateReport">Дата отчета:</label>
+                <input type="date" id="dateReport" name="dateReport" required class="form-input">
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </div>
+        </form>
+
+        <!-- Кнопка "Назад" -->
+        <a href="/reports/list" class="btn btn-secondary">Назад к списку</a>
+    </div>
+</div>
+</body>
+<div class="theme-btn-container"></div>
+</html>

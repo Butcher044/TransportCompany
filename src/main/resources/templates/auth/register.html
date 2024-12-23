@@ -1,0 +1,44 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/auth/auth.css"> <!-- Обновленный путь -->
+</head>
+<body>
+<section class="container">
+    <div class="login-container">
+        <div class="circle circle-one"></div>
+        <div class="form-container">
+            <h1 class="opacity">Регистрация</h1>
+            <form th:action="@{/register}" method="post">
+                <input type="text" id="username" name="username" placeholder="Логин" required>
+                <input type="text" id="fullName" name="fullName" placeholder="ФИО" required>
+                <input type="password" id="password" name="password" placeholder="Пароль" required>
+                <select id="role" name="role" required>
+                    <option value="ADMIN">Администратор</option>
+                    <option value="DRIVER">Водитель</option>
+                    <option value="MANAGER">Менеджер</option>
+                </select>
+                <button class="opacity register-btn" type="submit">Зарегистрироваться</button>
+            </form>
+            <div class="already-have-account opacity">
+                <!-- Кнопка "Уже есть аккаунт?" -->
+                <a href="/login">
+                    <button class="opacity login-btn" type="button">Уже есть аккаунт?</button>
+                </a>
+            </div>
+            <div th:if="${error}">
+                <p th:text="${error}" style="color: red;"></p>
+            </div>
+            <div th:if="${success}">
+                <p th:text="${success}" style="color: green;"></p>
+            </div>
+        </div>
+        <div class="circle circle-two"></div>
+    </div>
+    <div class="theme-btn-container"></div>
+</section>
+<script src="/theme.js"></script> <!-- Обновленный путь -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Список отчетов</title>
+  <link rel="stylesheet" href="/style_list/style.css">
+  <script src="/style_list/table.js" defer></script>
+  <script src="/theme.js" defer></script>
+</head>
+<body>
+<div class="container">
+  <div class="dashboard-container">
+    <h1 class="title">Список отчетов</h1>
+    <div class="table">
+      <div class="table-header">
+        <div class="header__item"><a id="description" class="filter__link" href="#">Описание отчета</a></div>
+        <div class="header__item"><a id="dateReport" class="filter__link" href="#">Дата отчета</a></div>
+        <div class="header__item"><a class="filter__link" href="#">Действия</a></div>
+      </div>
+      <div class="table-content">
+        <div class="table-row" th:each="report : ${reports}">
+          <div class="table-data" th:text="${report.description}"></div>
+          <div class="table-data" th:text="${report.dateReport}"></div>
+          <div class="table-data">
+            <div class="actions">
+              <!-- Форма для удаления отчета -->
+              <form th:action="@{/reports/delete/{id}(id=${report.id})}" method="post" class="delete-form">
+                <button type="submit" class="btn btn-danger btn-sm mt-3"
+                        onclick="return confirm('Вы уверены, что хотите удалить этот отчет?');">
+                  Удалить отчет
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="/reports/add" class="btn btn-primary">Добавить отчет</a>
+    <a href="/button/back" class="btn-back">Назад</a>
+  </div>
+</div>
+<div class="theme-btn-container"></div>
+</body>
+</html>
