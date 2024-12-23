@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали водителя</title>
+    <link rel="stylesheet" href="/driver/driver_details.css">
+    <script src="/theme.js" defer></script>
+</head>
+<body>
+<div class="container">
+    <div class="dashboard-container">
+        <h1 class="title">Детали водителя</h1>
+
+        <!-- Ошибки -->
+        <div th:if="${error}" class="alert alert-danger">
+            <p th:text="${error}"></p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 th:text="${driver.fullName}"></h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Дата рождения:</strong> <span th:text="${driver.dateOfBirth}"></span></p>
+                <p><strong>Телефон:</strong> <span th:text="${driver.phoneNumber}"></span></p>
+                <p><strong>Адрес проживания:</strong> <span th:text="${driver.residenceAddress}"></span></p>
+                <p><strong>Водительское удостоверение:</strong> <span th:text="${driver.drivingLicense}"></span></p>
+                <p><strong>Образование:</strong> <span th:text="${driver.education}"></span></p>
+                <p><strong>Срок действия мед. справки:</strong> <span th:text="${driver.validityPeriodOfTheMedicalCertificate}"></span></p>
+                <p><strong>Опыт вождения:</strong> <span th:text="${driver.drivingExperience} + ' лет'"></span></p>
+                <p><strong>Уровень водителя:</strong> <span th:text="${driver.driverLevel}"></span></p>
+                <p><strong>Зарплата:</strong> <span th:text="${driver.salary} + ' руб.'"></span></p>
+            </div>
+        </div>
+
+        <!-- Модальное окно для установки зарплаты -->
+        <div class="modal fade" id="setSalaryModal" tabindex="-1" aria-labelledby="setSalaryModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form th:action="@{/drivers/salary/{id}(id=${driver.id})}" method="post">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="salary">Указать зарплату (в рублях)</label>
+                                <input type="number" step="0.01" id="salary" name="salary" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Сохранить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <a href="/drivers/list" class="btn btn-secondary">Назад к списку</a>
+        </div>
+    </div>
+</div>
+<div class="theme-btn-container"></div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+/* Основные цветовые переменные */
+:root {
+    --background: #1a1a2e; /* Темный фон */
+    --color: #ffffff; /* Основной цвет текста */
+    --primary-color: #0f3460; /* Основной акцентный цвет */
+    --link-color: #4CAF50; /* Цвет ссылок */
+}
+
+/* Общие стили */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: var(--background);
+    color: var(--color);
+    line-height: 1.6;
+    padding: 24px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для текста */
+p {
+    margin: 10px 0;
+}
+
+p strong {
+    color: var(--primary-color);
+}
+
+/* Стили для ссылок */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #05e536;
+}
+
+/* Тема */
+.theme-btn {
+    width: 2rem;
+    height: 2rem;
+    margin: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.theme-btn-container {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: row;
+}
