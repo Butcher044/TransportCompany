@@ -212,6 +212,6 @@ sequenceDiagram
   
 ### 📞 Контакты для связи
 
-[Telegram](mailto:https://t.me/butcher044)
+[Telegram](https://t.me/butcher044)
 
 </div>
